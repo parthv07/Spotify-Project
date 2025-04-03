@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+    @font-face {
+        font-display: swap;
+        font-family: "SpotifyMixUI";
+        src: url("https://encore.scdn.co/fonts/SpotifyMixUI-Bold-4264b799009b1db5c491778b1bc8e5b7.woff2") format("woff2"),
+            url("https://encore.scdn.co/fonts/SpotifyMixUI-Bold-05392dabcaa9fab302f9ddc047b15752.woff") format("woff");
+    }
+
+    * {
+        font-family: "SpotifyMixUI", sans-serif;
+        font-weight: 700;
+        color: #b3b3b3;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: transparent;
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #898989;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+        height: 6px;
+        border-radius: 6px;
+    }
+
+    input[type="range"]::-moz-range-track {
+        height: 6px;
+        border-radius: 6px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: opacity 0.2s, width 0.2s, height 0.2s;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        background-color: #fff;
+        border-radius: 50%;
+        transition: opacity 0.2s, width 0.2s, height 0.2s;
+    }
+
+    .scrollbar-none::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .scrollbar-none {
+        -ms-overflow-style: none !important;
+        /* IE & Edge */
+        scrollbar-width: none !important;
+        /* Firefox */
+    }
+}
