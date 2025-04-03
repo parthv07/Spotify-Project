@@ -61,7 +61,7 @@ const Home = () => {
                                 <div className={`absolute h-full w-full bottom-0 z-10 transition-all duration-800 ease-in-out ${showDisclaimer ? "translate-y-0" : "translate-y-[100%]"}`}>
                                     {<Disclaimer handleclose={handleclose} />}
                                 </div>)}
-                            {showQueue && <div className={`fixed bottom-21 z-[60] h-[calc(100vh-var(--homebar-height))] right-10 max-lg:top-0 max-lg:left-0 transition-all duration-1000 ease-in-out `}><Queuedlist /></div>}
+                            {showQueue && <div className={`fixed bottom-21 z-[60]  max-lg:h-[calc(100vh-var(--homebar-height))] right-10 max-lg:top-0 max-lg:left-0 transition-all duration-1000 ease-in-out `}><Queuedlist /></div>}
                         </div>) : (<Signup />)}
                 </div>
                 <div id='homebar' className='min-[1024px]:hidden '><Navbarphone handlequeue={handlequeue} setopensrch={setopensrch} /></div>
