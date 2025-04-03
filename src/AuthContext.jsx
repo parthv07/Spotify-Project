@@ -3,9 +3,8 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 
 const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-// const REDIRECT_URI = window.innerWidth < 1024 ? "http://192.168.207.171:5173" : "http://localhost:5173";
-const REDIRECT_URI = "http://localhost:5173";
-// const REDIRECT_URI = "http://192.168.207.171:5173";
+// const REDIRECT_URI = "http://localhost:5173";
+const REDIRECT_URI = "https://spotify-project-vert.vercel.app/";
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const SCOPES = [
