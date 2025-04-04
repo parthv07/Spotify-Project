@@ -7,7 +7,7 @@ A sleek and functional frontend-only Spotify clone built using **React**, **Vite
 
 ## 🚀 Live Demo
 
-🔗 [Check out the live site on Vercel](https://spotify-project-seven.vercel.app)
+🔗 [Check out the live site on Vercel](https://spotify-project-vert.vercel.app/)
 
 ---
 
@@ -141,7 +141,8 @@ Spotify-Project/
 - 🔧 **Performance Optimization** – use `defer`, lazy loading, and best practices for speed  
 - 🔧 **Refactor Conditional Rendering** – reduce repetitive logic and unnecessary re-renders  
 - 🔧 **Add-to-Queue on Mobile & Tablet** – currently works on desktop, needs responsive integration
-
+- 🔧 **Handle Ghost Clicks / Multiple Rapid Clicks** – prevent duplicate actions or UI glitches  
+- 🔧 **Keyboard Event Listeners** – listen for keyboard shortcuts (e.g., play/pause, next, prev)
 ---
 
 ## 📬 Contact
