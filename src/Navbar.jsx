@@ -1,4 +1,3 @@
-import { FaSpotify } from "react-icons/fa";
 import { MdDownloading } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { Hlbtn } from "./small components/Components";
@@ -10,7 +9,8 @@ import { useConn } from './ConnContext';
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TiThMenu } from "react-icons/ti";
-import logo from "./assets/Spotify Logo/Full_Logo_White_CMYK.svg"
+import fulllogo from "./assets/Spotify Logo/Full_Logo_White_CMYK.svg"
+import logo from "./assets/Spotify Logo/Primary_Logo_White_CMYK.svg"
 import Hamburgermenu from "./Hamburgermenu";
 import { GoHome } from "react-icons/go";
 
@@ -45,7 +45,7 @@ const Navbar = ({ opensrch }) => {
     return (
         <nav id="navbar" className="flex items-center justify-between bg-black text-white px-2 pb-2">
             <div className="lg:flex items-center gap-2.5 hidden">
-                <FaSpotify className="size-8 mx-4" fill="#fff" />
+                <img className="size-9 mx-4" src={logo} alt="logo" />
                 <div className="flex items-center justify-center rounded-full bg-[#1f1f1f] p-2.5 size-12 ">
                     <button onClick={() => navigate("/")}>
                         <GoHome className={`${isHome ? "fill-white" : ""} w-7 h-7`} />
@@ -101,7 +101,7 @@ const Navbar = ({ opensrch }) => {
             </div>
             {!opensrch ? <div className="relative w-full lg:hidden">
                 <div className=" flex items-center justify-between w-full p-2">
-                    <img onClick={() => navigate("/")} src={logo} className="h-8" alt="" />
+                    <img onClick={() => navigate("/")} src={fulllogo} className="h-8" alt="" />
                     <div className="flex items-center gap-2">
                         <Hlbtn btnvalue="Open App" className="text-nowrap px-4 py-0.5 text-sm h-7 block max-[319px]:hidden" />
                         <div onClick={() => setIsOpen(!isOpen)}>{isOpen ? <RxCross2 fill="white" className="h-7 w-7 relative z-50" /> : <TiThMenu fill="white" className="h-7 w-7 relative z-50" />}</div>

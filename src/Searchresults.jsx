@@ -8,6 +8,7 @@ import { useMusicP } from './MusicpContext';
 import { useAuth } from './AuthContext';
 import { MdOutlineAddCircleOutline } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
+import logo from "./assets/Spotify Logo/Primary_Logo_Green_CMYK.svg";
 const Searchresults = () => {
     const { token } = useAuth();
     const { setTrack, setplaycardclicked } = useTrack();
@@ -60,7 +61,7 @@ const Searchresults = () => {
                 <div className='min-w-[40%]'>
                     <h1 className='text-2xl'>Top Result</h1>
                     <div className='bg-[#181818] p-5 my-3 rounded-xl relative group/ancestor group cursor-pointer'>
-                        <img height={92} width={92} src={searchResult.tracks.items[0].album.images[1].url} alt="" />
+                        <img height={92} width={92} src={searchResult.tracks.items[0].album.images[1].url || logo} alt="" />
                         <p className='text-3xl mt-8'>{searchResult.tracks.items[0].album.name}</p>
                         <button onClick={() => { handlePlay(searchResult.tracks.items[0]) }} className="bg-[#1ed760] p-3 absolute right-4 bottom-19 rounded-full opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto cursor-pointer"><RiPlayLargeFill fill="black" className="h-6 w-6" /></button>
                         <div className=''>
@@ -86,7 +87,7 @@ const Searchresults = () => {
                     {searchResult.tracks.items.slice(1, 5).map((item) => (
                         <div key={item.id} onClick={() => { handlePlay(item) }} className='flex justify-between py-3 lg:p-3 rounded-2xl hover:bg-[#2a2a2a] group/ancestor cursor-pointer '>
                             <div className='flex'>
-                                <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2].url} alt="" />
+                                <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2]?.url || logo} alt="" />
                                 <div>
                                     <p className='line-clamp-1'>{item.album.name}</p>
                                     <div className='line-clamp-1'>{item.artists.map((item, index, array) => (
@@ -133,7 +134,7 @@ const Searchresults = () => {
                     <div key={item.id} onClick={() => { handlePlay(item) }} className='flex justify-between py-3 lg:p-3 rounded-2xl hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                         <div className='flex items-center'>
                             <p className='p-2'>{index + 1}</p>
-                            <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2].url} alt="" />
+                            <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2].url || logo} alt="" />
                             <div>
                                 <p className='line-clamp-1'>{item.album.name}</p>
                                 <div className='line-clamp-1'>{item.artists.map((item, index, array) => (
@@ -168,7 +169,7 @@ const Searchresults = () => {
                                 <Link className='' to={`/${artist.type}/${artist.id}`}>
                                     <div className=" text-white p-3 flex flex-col justify-evenly w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={artist.images.length > 0 ? artist.images[2].url : "https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"}
+                                            src={artist.images.length > 0 ? artist.images[2].url : logo}
                                             alt={artist.name}
                                             className="w-[154px] h-[154px] rounded-full object-cover object-center"
                                         />
@@ -193,7 +194,7 @@ const Searchresults = () => {
                                 <div key={playlist.id} className='relative group' >
                                     <Link className='' to={`/${playlist.type}/${playlist.id}`}><div className=" text-white p-3 flex flex-col justify-between w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={playlist.images.length > 0 ? playlist.images[0].url : "https://via.placeholder.com/150"}
+                                            src={playlist.images.length > 0 ? playlist.images[0].url : logo}
                                             alt={playlist.name}
                                             className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                         />
@@ -218,7 +219,7 @@ const Searchresults = () => {
                                 <Link className='' to={`/${album.type}/${album.id}`}>
                                     <div className=" text-white p-3 flex flex-col justify-between w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={album.images.length > 0 ? album.images[1].url : "https://via.placeholder.com/150"}
+                                            src={album.images.length > 0 ? album.images[1].url : logo}
                                             alt={album.name}
                                             className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                         />
@@ -244,7 +245,7 @@ const Searchresults = () => {
                                     <Link className='' to={`/${show.type}/${show.id}`}>
                                         <div className=" text-white p-3 flex flex-col justify-between w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                             <img
-                                                src={show.images.length > 0 ? show.images[1].url : "https://via.placeholder.com/150"}
+                                                src={show.images.length > 0 ? show.images[1].url : logo}
                                                 alt={show.name}
                                                 className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                             />
@@ -265,7 +266,7 @@ const Searchresults = () => {
                             {searchResult?.episodes.items.slice(0, 9).map((episode) => (
                                 <div onClick={() => handlePlay(episode)} className='flex p-4 gap-6 cursor-pointer hover:bg-[#ffffff24] relative group' key={episode.id}>
                                     <div className='w-[175px]'><img
-                                        src={episode.images.length > 0 ? episode.images[1].url : "https://via.placeholder.com/150"}
+                                        src={episode.images.length > 0 ? episode.images[1].url : logo}
                                         alt={episode.name}
                                         className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                     /></div>

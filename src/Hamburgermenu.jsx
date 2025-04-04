@@ -1,9 +1,8 @@
-import React from 'react'
-import { MdDownloading } from 'react-icons/md'
+import React, { useState } from 'react'
 import { useAuth } from './AuthContext'
 
 const Hamburgermenu = () => {
-    const [color, setColor] = React.useState("black");
+    const [color] = useState("black");
     const { token, logout, user, login } = useAuth();
     return (
         <div style={{ backgroundColor: color }} className=' flex flex-col gap-10 w-screen h-screen bg-black px-10 py-14'>

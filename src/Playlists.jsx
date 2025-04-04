@@ -4,6 +4,7 @@ import { useTrack } from "./TrackContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
+import logo from "./assets/Spotify Logo/Primary_Logo_Green_CMYK.svg"
 
 const Playlists = () => {
     const { artists, albums, playlists, newReleases } = usePlaylist();
@@ -26,7 +27,7 @@ const Playlists = () => {
                                 <Link className='' to={`/${artist.type}/${artist.id}`}>
                                     <div className=" text-white p-3 flex flex-col justify-evenly w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={artist.images.length > 0 ? artist.images[1].url : "https://via.placeholder.com/150"}
+                                            src={artist.images.length > 0 ? artist.images[1].url : logo}
                                             alt={artist.name}
                                             className=" w-[154px] h-[154px] rounded-full object-cover object-center"
                                         />
@@ -50,7 +51,7 @@ const Playlists = () => {
                                 <Link className='' to={`/${album.type}/${album.id}`}>
                                     <div className=" text-white p-3 flex flex-col justify-between w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={album.images.length > 0 ? album.images[1].url : "https://via.placeholder.com/150"}
+                                            src={album.images.length > 0 ? album.images[1].url : logo}
                                             alt={album.name}
                                             className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                         />
@@ -75,7 +76,7 @@ const Playlists = () => {
                                 <Link className='' to={`/${playlist.type}/${playlist.id}`}>
                                     <div className=" text-white p-3 flex flex-col justify-between w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={playlist.images.length > 0 ? playlist.images[1].url : "https://via.placeholder.com/150"}
+                                            src={playlist.images.length > 0 ? playlist.images[1].url : logo}
                                             alt={playlist.name}
                                             className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                         />
@@ -99,7 +100,7 @@ const Playlists = () => {
                                 <Link className='' to={`/${playlist.type}/${playlist.id}`}>
                                     <div className=" text-white p-3 flex flex-col justify-between w-[175px] cursor-pointer hover:bg-[#1f1f1f] rounded-md">
                                         <img
-                                            src={playlist.images.length > 0 ? playlist.images[1].url : "https://via.placeholder.com/150"}
+                                            src={playlist.images.length > 0 ? playlist.images[1].url : logo}
                                             alt={playlist.name}
                                             className="w-[154px] h-[154px] rounded-md object-cover object-center"
                                         />

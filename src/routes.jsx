@@ -12,11 +12,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <Right />, // Right becomes the parent route
+                element: <Right />,
                 children: [
                     {
-                        index: true, // Default child route
-                        element: <Playlists />, // Renders Playlists by default
+                        index: true,
+                        element: <Playlists />,
                     },
                     {
                         path: "search/:srchquery",

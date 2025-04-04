@@ -5,6 +5,7 @@ import { VscVerifiedFilled } from "react-icons/vsc";
 import { useState, useEffect, useRef } from "react";
 import { useMusicP } from './MusicpContext';
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import logo from "./assets/Spotify Logo/Primary_Logo_Green_CMYK.svg";
 
 const Tracklist = () => {
     const { tracks, trackList, setTrack, setlistType, setAlbumId, playcardclicked, setplaycardclicked, bgColor, setBgColor } = useTrack();
@@ -98,7 +99,7 @@ const Tracklist = () => {
                         <div className='' style={{ backgroundImage: `linear-gradient(to bottom, ${bgColor}, #121212)` }}>
                             <div className="flex max-sm:flex-col gap-6 p-6">
                                 {tracks.images.length > 0 && <img ref={imgRef}
-                                    src={imageUrl}
+                                    src={imageUrl || logo}
                                     alt={tracks.name}
                                     crossOrigin="anonymous"
                                     className="w-[232px] h-[232px] rounded-full object-cover object-center shadow-[0_4px_60px_rgba(0,0,0,0.5)]"
@@ -128,7 +129,7 @@ const Tracklist = () => {
                                 <div onClick={() => handleplay(item)} key={item.id} className='grid grid-cols-2 max-sm:flex max-sm:justify-between p-3 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                                     <div className='flex items-center'>
                                         <p className='p-2'>{index + 1}</p>
-                                        <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2].url} alt="" />
+                                        <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2].url || logo} alt="" />
                                         <div>
                                             <p className='line-clamp-1 text-ellipsis'>{item.name}</p>
                                             <p className='line-clamp-1 text-ellipsis'>
@@ -161,7 +162,7 @@ const Tracklist = () => {
                         <div style={{ backgroundImage: `linear-gradient(to bottom, ${bgColor}, #121212)` }}>
                             <div className="flex max-sm:flex-col gap-6 p-6">
                                 {tracks.images.length > 0 && <img ref={imgRef}
-                                    src={imageUrl}
+                                    src={imageUrl || logo}
                                     alt={tracks.name}
                                     crossOrigin="anonymous"
                                     className="w-[232px] h-[232px] rounded-md object-cover object-center shadow-[0_4px_60px_rgba(0,0,0,0.5)]"
@@ -192,7 +193,7 @@ const Tracklist = () => {
                                 <div onClick={() => handleplay(item)} key={item.id} className='grid grid-cols-2 max-sm:flex max-sm:justify-between p-3 max-sm:p-1 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                                     <div className='flex items-center'>
                                         <p className='p-2'>{index + 1}</p>
-                                        <img className='object-cover mx-3' height={40} width={40} src={imageUrl} alt="" />
+                                        <img className='object-cover mx-3' height={40} width={40} src={imageUrl || logo} alt="" />
                                         <div className='max-sm:w-[110px]'>
                                             <p className='line-clamp-1 text-ellipsis'>{item.name}</p>
                                             <p className='line-clamp-1 text-ellipsis '>
@@ -223,7 +224,7 @@ const Tracklist = () => {
                     <div>
                         <div className="flex gap-6 p-6">
                             {tracks.images.length > 0 && <img ref={imgRef}
-                                src={imageUrl}
+                                src={imageUrl || logo}
                                 alt={tracks.name}
                                 crossOrigin="anonymous"
                                 className="w-[232px] h-[232px] rounded-md object-cover object-center shadow-[0_4px_60px_rgba(0,0,0,0.5)]"
@@ -251,7 +252,7 @@ const Tracklist = () => {
                                 <div onClick={() => handleplay(item.track)} key={index + 1} className='grid grid-cols-2 max-sm:grid-cols-[2.5fr_1fr] p-3 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                                     <div className='flex items-center'>
                                         <p className='p-2'>{index + 1}</p>
-                                        <img className='object-cover mx-3' height={40} width={40} src={imageUrl} alt="" />
+                                        <img className='object-cover mx-3' height={40} width={40} src={imageUrl || logo} alt="" />
                                         <div className=''>
                                             <p className='line-clamp-1 text-ellipsis'>{item.track.name}</p>
                                             <p className='line-clamp-1 text-ellipsis'>
@@ -282,7 +283,7 @@ const Tracklist = () => {
                     <div>
                         <div className="flex gap-6 p-6">
                             {tracks.images.length > 0 && <img ref={imgRef}
-                                src={imageUrl}
+                                src={imageUrl || logo}
                                 alt={tracks.name}
                                 crossOrigin="anonymous"
                                 className="w-[232px] h-[232px] rounded-md object-cover object-center shadow-[0_4px_60px_rgba(0,0,0,0.5)]"
@@ -309,7 +310,7 @@ const Tracklist = () => {
                                 <div onClick={() => handleplay(item)} key={index + 1} className='grid grid-cols-2 p-3 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                                     <div className='flex items-center'>
                                         <p className='p-2'>{index + 1}</p>
-                                        <img className='object-cover mx-3' height={72} width={72} src={item.images.length > 0 && item.images[1].url || imageUrl} alt="" />
+                                        <img className='object-cover mx-3' height={72} width={72} src={item.images.length > 0 && item.images[1].url || imageUrl || logo} alt="" />
                                         <div>
                                             <p className='line-clamp-1 text-ellipsis'>{item.name}</p>
                                             <p className='line-clamp-2 text-ellipsis'>{item.description}</p>

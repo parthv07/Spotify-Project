@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useAuth } from "./AuthContext"; // Ensure your AuthContext provides the token
+import { useAuth } from "./AuthContext";
 import { useTrack } from "./TrackContext";
 import { useMusicP } from "./MusicpContext";
+import logo from "./assets/Spotify Logo/Primary_Logo_Green_CMYK.svg";
 
 const RecentlyPlayedTracks = () => {
     const { token } = useAuth();
@@ -53,7 +54,7 @@ const RecentlyPlayedTracks = () => {
                 ).map(({ track }, index) => (
                     <div key={index} onClick={() => handleplay(track)} className="flex items-center bg-[#1f1f1f] p-3 cursor-pointer rounded-md">
                         <img
-                            src={track.album.images[0]?.url || "https://via.placeholder.com/150"}
+                            src={track.album.images[0]?.url || logo}
                             alt={track.name}
                             className="w-12 h-12 rounded-md object-cover"
                         />
