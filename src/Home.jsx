@@ -9,7 +9,6 @@ import { Outlet } from 'react-router-dom';
 import Queuedlist from './Queuedlist'
 import Navbarphone from './Navbarphone';
 import { useMusicP } from './MusicpContext';
-import { useSearch } from './SearchContext';
 
 
 const Home = () => {
@@ -17,7 +16,6 @@ const Home = () => {
     const { token } = useAuth();
     const { setShowQueue, showQueue } = useMusicP();
     const [opensrch, setopensrch] = useState(false);
-    const { searchResult } = useSearch();
 
 
     useEffect(() => {
@@ -64,7 +62,7 @@ const Home = () => {
                             {showQueue && <div className={`fixed bottom-21 z-[60]  max-lg:h-[calc(100vh-var(--homebar-height))] right-10 max-lg:top-0 max-lg:left-0 transition-all duration-1000 ease-in-out `}><Queuedlist /></div>}
                         </div>) : (<Signup />)}
                 </div>
-                <div id='homebar' className='min-[1024px]:hidden '><Navbarphone handlequeue={handlequeue} setopensrch={setopensrch} /></div>
+                <div id='homebar' className='min-[1024px]:hidden '><Navbarphone handlequeue={handlequeue} showQueue={showQueue} setopensrch={setopensrch} /></div>
             </div>
         </div>
     )

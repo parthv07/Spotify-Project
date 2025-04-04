@@ -251,19 +251,24 @@ const Player = () => {
                                     } ${progress / duration * 100}%, #555 ${progress / duration * 100}%)`
                             }}
                         />
-                        <p className="text-xs">{`${Math.floor(track?.duration_ms / 60000)}:${(`0${Math.floor((track?.duration_ms % 60000) / 1000)}`).slice(-2)}`}</p>
+                        <p className="text-xs">
+                            {!track?.duration_ms ? "0:00"
+                                : `${Math.floor(track.duration_ms / 60000)}:${(
+                                    "0" + Math.floor((track.duration_ms % 60000) / 1000)
+                                ).slice(-2)}`}
+                        </p>
                     </div>
                 </div>
                 <div className="flex items-center gap-2 justify-end">
-                    <HiOutlineQueueList onClick={() => { handlequeue(), setShowQueue(!showQueue) }} className="h-5 w-5 cursor-pointer hover:stroke-white" />
+                    <HiOutlineQueueList onClick={() => { handlequeue(), setShowQueue(!showQueue) }} className={`h-5 w-5 cursor-pointer hover:stroke-white ${showQueue ? "stroke-white" : ""}`} />
                     <div className="flex items-center gap-1 justify-center " >
                         <button onMouseDown={() => { if (vol !== 0) { player.setVolume(0); } else { player.setVolume(1); } }}
                             onMouseUp={vol !== 0 ? () => setVol(0) : () => setVol(1)} className="cursor-pointer" >
                             {vol === 0
-                                ? <BiVolumeMute className="h-5 w-5" />
+                                ? <BiVolumeMute className="h-5 w-5 hover:fill-white" />
                                 : vol > 0 && vol < 0.25
-                                    ? <BiVolumeLow className="h-5 w-5" />
-                                    : <BiVolumeFull className="h-5 w-5" />
+                                    ? <BiVolumeLow className="h-5 w-5 hover:fill-white" />
+                                    : <BiVolumeFull className="h-5 w-5 hover:fill-white" />
                             }
                         </button>
                         <input className="h-1 bg-[#1f1f1f] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:opacity-0 hover:[&::-webkit-slider-thumb]:opacity-100 [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:w-2 hover:[&::-webkit-slider-thumb]:h-3 hover:[&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:-translate-y-1/3"
@@ -294,7 +299,7 @@ const Player = () => {
                 </div>}
             {smartphoneplayer &&
                 <div id="smartphoneplayer"
-                    className={`fixed z-50 top-0 left-0 w-full h-full flex flex-col justify-between p-3 lg:hidden`} style={{ backgroundColor: bgColor}} >
+                    className={`fixed z-50 top-0 left-0 w-full h-full flex flex-col justify-between p-3 lg:hidden`} style={{ backgroundColor: bgColor }} >
                     <div className='flex items-center gap-3 p-3'>
                         <IoIosArrowDown onClick={handleopenclose} className="h-8 w-8" />
                         <p className="line-clamp-1 overflow-ellipsis">{track?.album?.name}</p>

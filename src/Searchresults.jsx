@@ -83,7 +83,7 @@ const Searchresults = () => {
                     </div>
                 </div>
                 <div className='lg:w-[80%]'>
-                    <h1 className='text-2xl'>Songs</h1>
+                    <h1 className='text-2xl max-sm:mx-4'>Songs</h1>
                     {searchResult.tracks.items.slice(1, 5).map((item) => (
                         <div key={item.id} onClick={() => { handlePlay(item) }} className='flex justify-between py-3 lg:p-3 rounded-2xl hover:bg-[#2a2a2a] group/ancestor cursor-pointer '>
                             <div className='flex'>

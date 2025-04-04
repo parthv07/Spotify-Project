@@ -9,7 +9,7 @@ const Signupbar = () => {
                 <h4 className='text-[#fff] font-normal text-[14px] max-md:hidden'>Preview of Spotify</h4>
                 <p className='text-[#fff] font-light text-[16px] max-md:text-center'>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
             </div>
-            <Link to="/signup"><Hlbtn className='text-nowrap max-md:hidden' btnvalue="Sign up free" /></Link>            
+            <Hlbtn className='text-nowrap max-md:hidden' btnvalue="Sign up free" />
         </div>
     )
 }

@@ -126,7 +126,7 @@ const Tracklist = () => {
                         </div>
                         <div className='px-6 max-md:px-2 '>
                             {trackList.map((item, index) => (
-                                <div onClick={() => handleplay(item)} key={item.id} className='grid grid-cols-2 max-sm:flex max-sm:justify-between p-3 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
+                                <div onClick={() => handleplay(item)} key={item.id} className='grid grid-cols-2 max-sm:flex max-sm:justify-between p-3 max-sm:p-1 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                                     <div className='flex items-center'>
                                         <p className='p-2'>{index + 1}</p>
                                         <img className='object-cover mx-3' height={40} width={40} src={item.album.images[2].url || logo} alt="" />
@@ -249,7 +249,7 @@ const Tracklist = () => {
                                     <p className='text-right'>Duration</p></div>
                             </div>
                             {trackList.map((item, index) => (
-                                <div onClick={() => handleplay(item.track)} key={index + 1} className='grid grid-cols-2 max-sm:grid-cols-[2.5fr_1fr] p-3 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
+                                <div onClick={() => handleplay(item.track)} key={index + 1} className='grid grid-cols-2 max-sm:grid-cols-[2.5fr_1fr] p-3 max-sm:p-1 rounded-md hover:bg-[#2a2a2a] cursor-pointer group/ancestor'>
                                     <div className='flex items-center'>
                                         <p className='p-2'>{index + 1}</p>
                                         <img className='object-cover mx-3' height={40} width={40} src={imageUrl || logo} alt="" />
