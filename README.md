@@ -140,9 +140,18 @@ Spotify-Project/
 - 🔧 **Track Sharing Feature** – enable users to share tracks easily  
 - 🔧 **Performance Optimization** – use `defer`, lazy loading, and best practices for speed  
 - 🔧 **Refactor Conditional Rendering** – reduce repetitive logic and unnecessary re-renders  
-- 🔧 **Add-to-Queue on Mobile & Tablet** – currently works on desktop, needs responsive integration
+- 🔧 **Add-to-Queue on Mobile & Tablet** – currently works on desktop, needs responsive integration  
 - 🔧 **Handle Ghost Clicks / Multiple Rapid Clicks** – prevent duplicate actions or UI glitches  
-- 🔧 **Keyboard Event Listeners** – listen for keyboard shortcuts (e.g., play/pause, next, prev)
+- 🔧 **Keyboard Event Listeners** – listen for keyboard shortcuts (e.g., play/pause, next, prev)  
+- 🔧 **Use `::before` / `::after` for Dividers** – instead of `border-left` or `border-right`  
+- 🔧 **Use HTML Entity Code for Symbols** – e.g., `&copy;` for copyright  
+- 🔧 **Semantic HTML Structure** – ensure tag flow matches actual UI sequence  
+- 🔧 **Programmatic Input Focus** – use JS to focus input fields on nearby label clicks  
+- 🔧 **Use Inline SVGs** – replace `<img>` with direct SVGs for better control and styling  
+- 🔧 **Consistent Spacing in Layouts** – if one element in a row/column has `margin`, others should too (avoid mixing with `padding`)  
+- 🔧 **Set Cookies for Disclaimer** – remember consent to avoid showing disclaimer again  
+- 🔧 **Improve Accessibility with `title` & `aria-label`** – when using `line-clamp` and `text-overflow: ellipsis`, show full info on hover and ensure screen reader support  
+- 🔧 **Theme Support (Light / Dark / System)** – allow users to switch or auto-detect preferred color scheme  
 ---
 
 ## 📬 Contact

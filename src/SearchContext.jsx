@@ -14,19 +14,21 @@ export const SearchProvider = ({ children }) => {
         if (!query.trim()) {
             return;
         }
-        const delayDebounce = setTimeout(async () => {
-            try {
-                const response = await axios.get(
-                    `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=album%2Cplaylist%2Cartist%2Ctrack%2Cshow%2Cepisode%2Caudiobook&market=IN`,
-                    { headers: { Authorization: `Bearer ${token}` } }
-                );
-                setSearchResult(response.data);
-            } catch (error) {
-                console.error("Error fetching search results:", error);
-            }
-        }, 1000); // Debounce delay (1000ms)
+        if (token) {
+            const delayDebounce = setTimeout(async () => {
+                try {
+                    const response = await axios.get(
+                        `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=album%2Cplaylist%2Cartist%2Ctrack%2Cshow%2Cepisode%2Caudiobook&market=IN`,
+                        { headers: { Authorization: `Bearer ${token}` } }
+                    );
+                    setSearchResult(response.data);
+                } catch (error) {
+                    console.error("Error fetching search results:", error);
+                }
+            }, 1000); // Debounce delay (1000ms)
 
-        return () => clearTimeout(delayDebounce);
+            return () => clearTimeout(delayDebounce);
+        }
     }, [query, token]);
 
     return (

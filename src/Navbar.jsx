@@ -33,7 +33,7 @@ const Navbar = ({ opensrch }) => {
     }, [window.location.pathname]);
     useEffect(() => {
         if (!srchquery) return;
-        if (srchquery) {
+        if (srchquery && token) {
             setQuery(srchquery);
         }
     }, [srchquery]);
@@ -91,7 +91,7 @@ const Navbar = ({ opensrch }) => {
                     <button onClick={logout} className="bg-[#1f1f1f] text-[#fff] px-6 py-3 rounded-full cursor-pointer text-nowrap hover:scale-105"> Log out</button>
                 </div>
                     : <div className="flex items-center gap-4">
-                        <Link to="/signup" className="text-nowrap hover:scale-105 hover:text-white">Sign up</Link>
+                        <Link to="#" className="text-nowrap hover:scale-105 hover:text-white">Sign up</Link>
                         <div className="hover:scale-105" onClick={() => login()}>
                             <Hlbtn btnvalue="Log in" className="text-nowrap" />
                         </div>
@@ -111,7 +111,7 @@ const Navbar = ({ opensrch }) => {
                     }`}> <Hamburgermenu /></div>
             </div> : <div className="relative cursor-pointer m-auto w-[90%]">
                 <input id="search" value={query}
-                    onChange={(e) => setQuery(e.target.value)} type="text" placeholder="What do you want to play?" className="bg-[#1f1f1f] text-[#fff]  px-4 py-2 rounded-full pl-13 h-12 pr-20 w-full" />
+                    onChange={(e) =>  setQuery(e.target.value)} type="text" placeholder="What do you want to play?" className="bg-[#1f1f1f] text-[#fff]  px-4 py-2 rounded-full pl-13 h-12 pr-20 w-full" />
                 <label htmlFor="search">
                     <FiSearch className="size-10 px-2 absolute left-1.5 top-1/2 transform -translate-y-1/2 text-[#fff]" /></label>
                 {query &&

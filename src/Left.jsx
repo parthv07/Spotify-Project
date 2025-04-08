@@ -20,7 +20,7 @@ const Left = () => {
 
     return (
         openleft ?
-            <aside className={`h-full lg:w-[35%] bg-[#121212] rounded-md mb-2 min-w-[300px] overflow-auto scrollbar-none '}`}>
+            <aside className={`h-full lg:w-[35%] bg-[#121212] rounded-md mb-2 min-w-[300px] overflow-auto scrollbar-none`}>
                 <div className='  flex flex-col '>
                     <div onClick={() => handleclose(false)} className='flex items-center justify-between'>
                         <div className='flex flex-nowrap gap-3 p-7'>
