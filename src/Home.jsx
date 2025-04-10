@@ -9,6 +9,7 @@ import { Outlet } from 'react-router-dom';
 import Queuedlist from './Queuedlist'
 import Navbarphone from './Navbarphone';
 import { useMusicP } from './MusicpContext';
+import LoginDisclaimer from "./LoginDisclaimer";
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
     const { token } = useAuth();
     const { setShowQueue, showQueue } = useMusicP();
     const [opensrch, setopensrch] = useState(false);
+    const [loginclicked, setloginclicked] = useState(false);
 
 
     useEffect(() => {
@@ -46,7 +48,7 @@ const Home = () => {
     return (
         <div>
             <div className='bg-black p-2'>
-                <Navbar opensrch={opensrch} />
+                <Navbar opensrch={opensrch} setloginclicked={setloginclicked} />
                 <div className='flex h-[calc(100vh-148px)] max-lg:h-[calc(100vh-var(--navbar-height)-16px-var(--foot-height)-var(--homebar-height))]'>
                     <Left />
                     <Outlet />
@@ -62,8 +64,9 @@ const Home = () => {
                             {showQueue && <div className={`fixed bottom-21 z-[60]  max-lg:h-[calc(100vh-var(--homebar-height))] right-10 max-lg:top-0 max-lg:left-0 transition-all duration-1000 ease-in-out `}><Queuedlist /></div>}
                         </div>) : (<Signup />)}
                 </div>
-                <div id='homebar' className='min-[1024px]:hidden '><Navbarphone handlequeue={handlequeue} showQueue={showQueue} setopensrch={setopensrch} /></div>
+                <div id='homebar' className='min-[1024px]:hidden '><Navbarphone handlequeue={handlequeue} showQueue={showQueue} setopensrch={setopensrch}  /></div>
             </div>
+            {loginclicked && <LoginDisclaimer setloginclicked={setloginclicked} />}
         </div>
     )
 }

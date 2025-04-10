@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from './AuthContext'
 
-const Hamburgermenu = () => {
+const Hamburgermenu = ({setloginclicked}) => {
     const [color] = useState("black");
     const { token, logout, user, login } = useAuth();
     return (
@@ -13,7 +13,7 @@ const Hamburgermenu = () => {
                 <button onClick={logout} className=" text-[#fff] cursor-pointer text-nowrap"> Log out</button>
             </div> :
                 <div className='flex flex-col gap-5 items-start '>
-                    <button onClick={() => login()} className='text-xl text-white cursor-pointer'>Log in</button>
+                    <button onClick={() => { setloginclicked(true) }} className='text-xl text-white cursor-pointer'>Log in</button>
                     <button className='text-xl text-white cursor-pointer'>Sign up</button>
                 </div>}
             <div className='border border-white w-4'></div>

@@ -14,7 +14,7 @@ import logo from "./assets/Spotify Logo/Primary_Logo_White_CMYK.svg"
 import Hamburgermenu from "./Hamburgermenu";
 import { GoHome } from "react-icons/go";
 
-const Navbar = ({ opensrch }) => {
+const Navbar = ({ opensrch, setloginclicked }) => {
     const navigate = useNavigate();
     const { srchquery } = useParams();
     const { token, logout, user, login } = useAuth();
@@ -92,7 +92,7 @@ const Navbar = ({ opensrch }) => {
                 </div>
                     : <div className="flex items-center gap-4">
                         <Link to="#" className="text-nowrap hover:scale-105 hover:text-white">Sign up</Link>
-                        <div className="hover:scale-105" onClick={() => login()}>
+                        <div className="hover:scale-105" onClick={() => setloginclicked(true)}>
                             <Hlbtn btnvalue="Log in" className="text-nowrap" />
                         </div>
                     </div>
@@ -108,10 +108,10 @@ const Navbar = ({ opensrch }) => {
                     </div>
                 </div>
                 <div className={` fixed top-0 z-40 opacity-0 transition-all duration-800 ease-in-out ${isOpen ? "left-0 opacity-100" : "translate-x-[100%]"
-                    }`}> <Hamburgermenu /></div>
+                    }`}> <Hamburgermenu setloginclicked={setloginclicked} /></div>
             </div> : <div className="relative cursor-pointer m-auto w-[90%]">
                 <input id="search" value={query}
-                    onChange={(e) =>  setQuery(e.target.value)} type="text" placeholder="What do you want to play?" className="bg-[#1f1f1f] text-[#fff]  px-4 py-2 rounded-full pl-13 h-12 pr-20 w-full" />
+                    onChange={(e) => setQuery(e.target.value)} type="text" placeholder="What do you want to play?" className="bg-[#1f1f1f] text-[#fff]  px-4 py-2 rounded-full pl-13 h-12 pr-20 w-full" />
                 <label htmlFor="search">
                     <FiSearch className="size-10 px-2 absolute left-1.5 top-1/2 transform -translate-y-1/2 text-[#fff]" /></label>
                 {query &&

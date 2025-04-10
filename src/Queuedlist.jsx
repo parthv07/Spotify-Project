@@ -10,7 +10,7 @@ const Queuedlist = () => {
     }, [queue]);
 
     return (
-        showQueue && Object.keys(queue).length !== 0 &&
+        showQueue && Object.keys(queue ?? {}).length !== 0 &&
         <div className='p-4 flex flex-col gap-8 w-[22vw] max-lg:w-screen bg-black rounded-md max-lg:h-full'>
             <div className='flex justify-between items-center'>
                 <h1 className='text-lg text-white'>Queue</h1>
